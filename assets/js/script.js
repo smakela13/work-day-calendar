@@ -5,20 +5,31 @@ var plannerEl = $("#planner");
 
 plannerEl.empty();
 
+
 var today = moment();
 $("#currentDay").text(today.format("dddd, MMMM Do, YYYY"));
 
+var update = function () {
+    time = moment();
+    timing.html(time.format("h:m:s A"));
+}; 
 
-for (let hour = 8; hour <= 18; hour++) {
+$(document).ready(function () {
+    timing = $('#currentTime')
+    update();
+    setInterval(update, 1000);
+});
+
+for (let hour = 7; hour <= 18; hour++) {
     var index = hour - 8;
 
     var rowEl = $("<div>");
-    rowEl.addClass("row", "time-block");
+    rowEl.addClass("row time-block");
     rowEl.attr("workTime", hour);
     
     var timeEl = $("<div>");
     timeEl.attr("id", "timeCol");
-    timeEl.addClass("col", "hour");
+    timeEl.addClass("col-1 hour");
 
     var workHourEl = $("<span>");
     workHourEl.attr("id", "workTime");
@@ -33,9 +44,8 @@ for (let hour = 8; hour <= 18; hour++) {
         amPM = "AM";
     }
     
-    timeEl.text("It's time");
-    rowEl.text("I'm rowing");
-    workHourEl.text("...to work");
+    timeEl.text("9");
+    workHourEl.text("AM");
     plannerEl.append(rowEl);
     rowEl.append(timeEl);
     timeEl.append(workHourEl);
@@ -43,7 +53,7 @@ for (let hour = 8; hour <= 18; hour++) {
     var eventEl = $("<div>");
     eventEl.attr("id", "eventCol");
 
-    eventEl.addClass("col-6");
+    eventEl.addClass("col-10");
     eventEl.addClass("past");
     eventEl.addClass("present");
     eventEl.addClass("future");
@@ -53,13 +63,17 @@ for (let hour = 8; hour <= 18; hour++) {
 
     var saveEl = $("<div>");
     saveEl.attr("id", "saveCol");
-    saveEl.addClass("saveBtn i:hover col");
+    saveEl.addClass("saveBtn i:hover col-1");
     saveEl.text("be saved");
     rowEl.append(saveEl);
 }
 
 function rowColors() {
-    
+    if (timing) {
+      
+    } else {
+      
+    }
 }
 
 
