@@ -22,7 +22,7 @@ $(document).ready(function () {
 
 for (let hour = 7; hour <= 18; hour++) {
     var index = hour - 8;
-
+    
     var rowEl = $("<div>");
     rowEl.addClass("row time-block");
     rowEl.attr("workTime", hour);
@@ -36,28 +36,28 @@ for (let hour = 7; hour <= 18; hour++) {
 
     var isHour = 0;
     var amPM = "";
-    if (hour >= 12) {
+    if (hour > 12) {
         isHour = hour - 12;
-        amPM = "PM"
-    } else {
+        amPM = "PM";
+    } else if (hour < 12) {
         isHour = hour;
         amPM = "AM";
+    } else {
+        isHour = 12;
+        amPM = "PM";
     }
     
-    timeEl.text("9");
-    workHourEl.text("AM");
+    console.log("what is " + isHour);
+
+    timeEl.text(isHour);
+    workHourEl.text(amPM);
     plannerEl.append(rowEl);
     rowEl.append(timeEl);
     timeEl.append(workHourEl);
 
     var eventEl = $("<div>");
     eventEl.attr("id", "eventCol");
-
     eventEl.addClass("col-10");
-    eventEl.addClass("past");
-    eventEl.addClass("present");
-    eventEl.addClass("future");
-
     eventEl.text("be productive");
     rowEl.append(eventEl);
 
@@ -66,15 +66,18 @@ for (let hour = 7; hour <= 18; hour++) {
     saveEl.addClass("saveBtn i:hover col-1");
     saveEl.text("be saved");
     rowEl.append(saveEl);
+
+    rowColors(rowEl, hour);
 }
 
-function rowColors() {
-    if (timing) {
-      
+var currentTime = moment().format("H");
+function rowColors(eventEl, hour) {
+    
+    if (hour < currentTime) {
+        eventEl.addClass("past");  
+    } else if (hour > currentTime) {
+        eventEl.addClass("present");          
     } else {
-      
+        eventEl.addClass("future");
     }
 }
-
-
-moment().local();
