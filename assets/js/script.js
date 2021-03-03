@@ -11,7 +11,7 @@ $("#currentDay").text(today.format("dddd, MMMM Do, YYYY"));
 
 var update = function () {
     time = moment();
-    timing.html(time.format("h:m:s A"));
+    timing.html(time.format("h:mm:ss A"));
 }; 
 
 $(document).ready(function () {
