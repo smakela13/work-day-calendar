@@ -1,29 +1,29 @@
-/* var timeEl = $("#timeCol");
-var eventEl = $("#eventCol");
-var saveEl = $("#saveCol"); */
+// global variables
+var workStart = 7;
+var workEnd = 18;
+
+// planner container for the scheduler
+var plannerEl = $("#planner");
+plannerEl.empty();
+
+// updates clock to allow the user to see current time
 $(document).ready(function () {
-    var plannerEl = $("#planner");
-
-    plannerEl.empty();
-
-
-    var today = moment();
-    $("#currentDay").text(today.format("dddd, MMMM Do, YYYY"));
+    $("#currentDay").text(moment().format("dddd, MMMM Do, YYYY"));
 
     var update = function () {
         time = moment();
         timing.html(time.format("h:mm:ss A"));
     };
 
-
-    timing = $('#currentTime');
+    timing = $("#currentTime");
     update();
     setInterval(update, 1000);
+});
 
-
-    for (let hour = 7; hour <= 18; hour++) {
-        var index = hour - 8;
-
+// appends planner's elements to the page and generates hours
+for (let hour = workStart; hour <= workEnd; hour++) {
+    var index = hour - 8;
+    
         var rowEl = $("<div>");
         rowEl.addClass("row time-block");
         rowEl.attr("workTime", hour);
@@ -60,26 +60,28 @@ $(document).ready(function () {
         eventEl.text("be productive");
         rowEl.append(eventEl);
 
-        var saveEl = $("<i>");
+        var iEl = $("<i>");
+        rowEl.append(iEl);
+    
+        var saveEl = $("<button>");
         saveEl.attr("id", "saveCol");
-        saveEl.addClass("saveBtn i:hover col-1");
+        saveEl.addClass("saveBtn col-1");
         saveEl.text("be saved");
         rowEl.append(saveEl);
 
-        rowColors(rowEl, hour);
-    }
+    rowColors(eventEl, hour);
+}
 
-    var currentTime = moment().format("H");
+    // updates the row's colors for each of viewing day
     function rowColors(eventEl, hour) {
+        var currentTime = parseInt(moment().format("HH"));
 
         if (hour < currentTime) {
             eventEl.addClass("past");
-        } else if (hour > currentTime) {
-            eventEl.addClass("future");
-        } else {
+        } else if (hour === currentTime) {
             eventEl.addClass("present");
+        } else {
+            eventEl.addClass("future");
         }
-        console.log("what is the " + currentTime);
 
     }
-});
