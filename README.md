@@ -1,89 +1,32 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# Work Day Scheduler
 
-## Your Task
+## Table of Contents
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+* [Description](#description)
+* [Usage](#usage)
+* [Credits](#credits)
+* [License](#license)
 
-You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
+## Description
 
-## User Story
+Are your days at the office hectic? Do you need a better way to plan your day? 
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
+This work day scheduler allows you to see the current time and date so you can enter in your plans for the day. Just click on the box related to the time you'd like to schedule for, type in your plans, and hit the save icon. Your schedule will be saved until you'd like to make changes. 
 
-## Acceptance Criteria
+You're guaranteed to feel more in control of your day with this helpful planner! 
 
-```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar (Y)
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours (Y)
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future (Y)
-WHEN I click into a timeblock
-THEN I can enter an event (Y)
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage 
-WHEN I refresh the page
-THEN the saved events persist
-```
+This scheduler is written in jQuery, HTML, and Bootstrap.
 
-The following animation demonstrates the application functionality:
+## Usage
 
-![A user clicks on slots on the color-coded calendar and edits the events.](./assets/images/05-third-party-apis-homework-demo.gif)
+![Sarah Makela's Work Day Scheduler](./assets/images/work-day-scheduler.png)
 
+Navigate to [Sarah Makela's Work Day Scheduler](https://smakela13.github.io/work-day-calendar/index.html) and view the web page.
 
-## Grading Requirements
+## Credits
 
-This homework is graded based on the following criteria: 
+Created by [Sarah Makela](https://github.com/smakela13).
 
-### Technical Acceptance Criteria: 40%
+## License
 
-* Satisfies all of the above acceptance criteria plus the following:
-
-  * Uses a date utility library to work with date and time
-
-### Deployment: 32%
-
-* Application deployed at live URL
-
-* Application loads with no errors
-
-* Application GitHub URL submitted
-
-* GitHub repo contains application code
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate
-
-* Application user interface style is clean and polished
-
-* Application resembles the mock-up functionality provided in the homework instructions
-
-### Repository Quality: 13%
-
-* Repository has a unique name
-
-* Repository follows best practices for file structure and naming conventions
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages
-
-* Repository contains quality README file with description, screenshot, and link to deployed application
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application
-
-* The URL of the GitHub repository, with a unique name and a README describing the project
-
-- - -
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+This website currently has No License, which means it is under exclusive copyright. No one can copy, distribute, or modify this website without permission.

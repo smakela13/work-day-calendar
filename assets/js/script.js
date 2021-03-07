@@ -8,9 +8,9 @@ var plannerEl = $('#planner');
 // updates clock to allow the user to see current time
 $(document).ready(function () {
     var update = function () {
-    
-    date.html(moment().format('dddd, MMMM Do, YYYY'));
-    timing.html(moment().format('h:mm:ss A'));
+
+        date.html(moment().format('dddd, MMMM Do, YYYY'));
+        timing.html(moment().format('h:mm:ss A'));
     };
 
     date = $('#currentDay');
@@ -21,9 +21,7 @@ $(document).ready(function () {
 
 // appends planner's elements to the page and generates hours
 for (let hour = workStart; hour <= workEnd; hour++) {
-    var index = hour - 11;
-    
-    // separate hour, description, and button into three functions
+
     var rowEl = $('<div>');
     rowEl.addClass('row time-block');
     rowEl.attr('plannerHour', hour);
@@ -49,16 +47,16 @@ for (let hour = workStart; hour <= workEnd; hour++) {
     }
 
     var eventEl = $('<input>');
-    eventEl.addClass('eventCol col-10');
+    eventEl.addClass('eventCol col-10 textarea');
     eventEl.attr('type', 'text');
+
+    // allows text to be editable
     var schedule = getHourData();
     schedule.forEach(function (calendarEvent) {
         if (calendarEvent.hour == hour) {
-            eventEl.attr('placeholder', calendarEvent.plans);
+            $(eventEl).val(calendarEvent.plans);
         }
-    })
-    // if has entry for hour(hour) {eventEl.text(getHourData(hour))}
-    // getHourData will access the localstorage and display the data
+    });
 
     timeEl.text(isHour);
     workHourEl.text(amPM);
@@ -69,34 +67,31 @@ for (let hour = workStart; hour <= workEnd; hour++) {
 
     var iEl = $('<i>');
     iEl.addClass('fas fa-save');
-        
+
     var saveEl = $('<button>');
     saveEl.attr('id', `saveCol`);
     saveEl.addClass('saveBtn col-1');
-    
+
     rowEl.append(saveEl);
     saveEl.append(iEl);
-    
-    // add ability to get info from localstorage
-    
+
     rowColors(eventEl, hour);
-    
-
 }
 
-    // updates the row's colors for each of viewing day
-    function rowColors(eventEl, hour) {
-        var currentTime = parseInt(moment().format('HH'));
+// updates the row's colors for each of viewing day
+function rowColors(eventEl, hour) {
+    var currentTime = parseInt(moment().format('HH'));
 
-        if (hour < currentTime) {
-            eventEl.addClass('past');
-        } else if (hour === currentTime) {
-            eventEl.addClass('present');
-        } else {
-            eventEl.addClass('future');
-        }
+    if (hour < currentTime) {
+        eventEl.addClass('past');
+    } else if (hour === currentTime) {
+        eventEl.addClass('present');
+    } else {
+        eventEl.addClass('future');
+    }
 }
-    
+
+// saves hour and plans of the user
 $(document).on('click', 'i', function (event) {
     event.preventDefault();
 
@@ -110,12 +105,13 @@ $(document).on('click', 'i', function (event) {
     };
     console.log(myPlans);
     console.log(event);
-    
+
     storedPlan.push(myPlans);
-        
+
     localStorage.setItem("plan", JSON.stringify(storedPlan));
 });
 
+// retrieves user's saved plans and hour of the plan
 function getHourData() {
     var storedEntry = JSON.parse(localStorage.getItem('plan'));
     if (storedEntry == null) {
