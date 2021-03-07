@@ -15,7 +15,7 @@ This work day scheduler allows you to see the current time and date so you can e
 
 You're guaranteed to feel more in control of your day with this helpful planner! 
 
-This scheduler is written in jQuery, HTML, and Bootstrap.
+This scheduler is written in jQuery, HTML, Bootstrap, and MomentJS.
 
 ## Usage
 
