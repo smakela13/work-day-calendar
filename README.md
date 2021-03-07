@@ -19,15 +19,15 @@ SO THAT I can manage my time effectively
 ```md
 GIVEN I am using a daily planner to create a schedule
 WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
+THEN the current day is displayed at the top of the calendar (Y)
 WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
+THEN I am presented with timeblocks for standard business hours (Y)
 WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+THEN each timeblock is color coded to indicate whether it is in the past, present, or future (Y)
 WHEN I click into a timeblock
-THEN I can enter an event
+THEN I can enter an event (Y)
 WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
+THEN the text for that event is saved in local storage 
 WHEN I refresh the page
 THEN the saved events persist
 ```
