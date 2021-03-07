@@ -69,7 +69,7 @@ for (let hour = workStart; hour <= workEnd; hour++) {
     iEl.addClass('fas fa-save');
 
     var saveEl = $('<button>');
-    saveEl.attr('id', `saveCol`);
+    saveEl.attr('id', 'saveCol');
     saveEl.addClass('saveBtn col-1');
 
     rowEl.append(saveEl);
@@ -100,15 +100,15 @@ $(document).on('click', 'i', function (event) {
     console.log(storedPlan);
 
     var myPlans = {
-        "hour": $(rowRef).attr('plannerhour'),
-        "plans": $(rowRef).find('input').val(),
+        'hour': $(rowRef).attr('plannerhour'),
+        'plans': $(rowRef).find('input').val(),
     };
     console.log(myPlans);
     console.log(event);
 
     storedPlan.push(myPlans);
 
-    localStorage.setItem("plan", JSON.stringify(storedPlan));
+    localStorage.setItem('plan', JSON.stringify(storedPlan));
 });
 
 // retrieves user's saved plans and hour of the plan
