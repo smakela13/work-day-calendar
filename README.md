@@ -19,13 +19,13 @@ This scheduler is written in jQuery, HTML, Bootstrap, and MomentJS.
 
 ## Usage
 
-![Sarah Makela's Work Day Scheduler](./assets/images/work-day-scheduler.png)
+![Soma Makela's Work Day Scheduler](./assets/images/work-day-scheduler.png)
 
-Navigate to [Sarah Makela's Work Day Scheduler](https://smakela13.github.io/work-day-calendar/index.html) and view the web page.
+Navigate to [Soma Makela's Work Day Scheduler](https://smakela13.github.io/work-day-calendar/index.html) and view the web page.
 
 ## Credits
 
-Created by [Sarah Makela](https://github.com/smakela13).
+Created by [Soma Makela](https://github.com/smakela13).
 
 ## License
 
